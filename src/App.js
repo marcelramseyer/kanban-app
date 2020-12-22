@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ListContainer from './components/ListContainer';
+import { DragDropContext } from 'react-beautiful-dnd';
 
-function App() {
+import { useDispatch } from 'react-redux';
+import { PERSIST_CARD_ORDER } from './actions';
+
+const App = () => {
+  const dispatch = useDispatch();
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId, type } = result;
+    if (!destination) {
+      return;
+    }
+    dispatch({
+      type: PERSIST_CARD_ORDER,
+      payload: {
+        source,
+        destination,
+        draggableId,
+        type,
+      },
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="p-8">
+        <p className="text-xl	font-bold py-8">Kanban Board</p>
+        <ListContainer />
+      </div>
+    </DragDropContext>
   );
-}
+};
 
 export default App;
