@@ -1,36 +1,25 @@
 import React from 'react';
-import ListContainer from './components/ListContainer';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Navbar from './pages/Navbar';
+import Project from './pages/Project';
+import { withRouter } from 'react-router';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
-import { useDispatch } from 'react-redux';
-import { PERSIST_CARD_ORDER } from './actions';
+const exclusionArray = ['/signin', '/signup'];
 
-const App = () => {
-  const dispatch = useDispatch();
-  const onDragEnd = (result) => {
-    const { destination, source, draggableId, type } = result;
-    if (!destination) {
-      return;
-    }
-    dispatch({
-      type: PERSIST_CARD_ORDER,
-      payload: {
-        source,
-        destination,
-        draggableId,
-        type,
-      },
-    });
-  };
-
+const App = ({ location }) => {
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <div className="p-8">
-        <p className="text-xl	font-bold py-8">Kanban Board</p>
-        <ListContainer />
-      </div>
-    </DragDropContext>
+    <div>
+      {exclusionArray.indexOf(location.pathname) < 0 && <Navbar />}
+      {/* {location.pathname !== '/signin' && <Navbar />} */}
+      <Route exact path="/signin" component={SignIn} />
+      <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/" component={Home} />
+      <Route path="/project" component={Project} />
+    </div>
   );
 };
 
-export default App;
+export default withRouter(App);

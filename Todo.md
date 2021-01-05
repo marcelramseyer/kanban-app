@@ -17,12 +17,28 @@ Part 2 - Drag n Drop Functionality
 
 Part 3 - Backend Basics
 
-[] firebase functions einrichten
-[] Datenbank & Datenmodel erstellen
-[] get Request testen mit Postman
+[] Redux Filestruktur festlegen
+[] Refactor Reducers -> Action Creators
+[x] Test -> Testdb einrichten und Daten lesen
 
 Part X - Cleanup
 
-[] Bei verschieben einer Card wird die Anzahl Cards im Titel nicht aktualisiert
+[x] Bei verschieben einer Card wird die Anzahl Cards im Titel nicht aktualisiert
 [] custom placeholder bei Card und List verschieben
 [] Bei Drag einer Card Rahmenfarbe ändern
+[] observer pattern?
+
+Part 4 - Diverses Get familiar with...
+[x] Router Testen
+[x] Form und Validierung Testen mit Formik und Yup
+[] React Modal
+
+Part 5 - Authentication
+[] Signup Form
+[x] Signin Form
+[x] Authentication with Firebase
+[x] Store Token in Storage
+[] Protected Routes
+[] Signin with Google / Twitter
+[] Fehlerbehebung -> Action wird 2mal dispatched
+[] Funktion auslogen

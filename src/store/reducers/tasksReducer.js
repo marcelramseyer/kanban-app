@@ -1,19 +1,22 @@
-import { data } from './data';
 import {
   CHANGE_LIST_TITLE,
   ADD_CARD,
   ADD_LIST,
   PERSIST_CARD_ORDER,
-} from './actions';
+  FETCH_DATA,
+} from '../actionsTypes';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialStore = {
   amount: 10,
   count: 0,
-  lists: data,
+  lists: [],
 };
 
 const rootReducer = (state = initialStore, action) => {
+  if (action.type === FETCH_DATA) {
+    return { ...state, lists: action.payload };
+  }
   if (action.type === CHANGE_LIST_TITLE) {
     const newTitle = action.payload.Title;
     const newState = state.lists.map((list) => {
@@ -50,6 +53,7 @@ const rootReducer = (state = initialStore, action) => {
     if (type === 'list') {
       const list = tempState.lists.splice(source.index, 1);
       tempState.lists.splice(destination.index, 0, ...list);
+      console.log(source.index, destination.index, list, tempState);
       return tempState;
     }
     if (source.droppableId === destination.droppableId) {

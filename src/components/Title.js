@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { CHANGE_LIST_TITLE } from '../actions';
+import { CHANGE_LIST_TITLE } from '../store/actionsTypes';
 
 const Title = ({ id, title, cards }) => {
   const dispatch = useDispatch();

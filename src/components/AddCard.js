@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ADD_CARD } from '../actions';
+import { addCard } from '../store/actions/tasksActions';
 import { useDispatch } from 'react-redux';
 
 const AddCard = ({ listId }) => {
@@ -19,7 +19,7 @@ const AddCard = ({ listId }) => {
           <button
             onClick={() => {
               setCardText('');
-              dispatch({ type: ADD_CARD, payload: { cardText, listId } });
+              dispatch(addCard({ cardText, listId }));
             }}
           >
             Hinzufügen
