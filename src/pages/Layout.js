@@ -3,9 +3,12 @@ import Navbar from './Navbar';
 
 function Layout({ children }) {
   return (
-    <div>
-      <Navbar />
-      {children}
+    <div className="flex">
+      <div>test</div>
+      <div>
+        <Navbar />
+        {children}
+      </div>
     </div>
   );
 }

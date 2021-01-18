@@ -18,7 +18,7 @@ const List = ({ id, index, title, cards }) => {
               <div
                 {...provided.droppableProps}
                 ref={provided.innerRef}
-                className="mr-6 w-72"
+                className="mr-2 w-76 bg-gray-50 py-4 px-4 rounded h-full"
               >
                 <Title title={title} id={id} cards={cards} />
                 {cards.map((card, index) => (

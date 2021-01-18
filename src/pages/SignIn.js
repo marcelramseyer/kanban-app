@@ -3,11 +3,9 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { signInWithEmail } from '../firestore/firebaseService';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { signInUser } from '../store/actions/authActions';
+import SocialLogin from '../components/SocialLogin';
 
 function SignIn() {
-  const dispatch = useDispatch();
   const history = useHistory();
   return (
     <div>
@@ -19,19 +17,13 @@ function SignIn() {
         })}
         onSubmit={async (values, { setSubmitting, setErrors }) => {
           try {
-            await dispatch(signInUser(values));
+            await signInWithEmail(values);
             history.push('/');
+            setSubmitting(false);
           } catch (error) {
-            setErrors({ auth: 'Problem with username or password' });
+            setErrors({ auth: error.message });
+            setSubmitting(false);
           }
-          // try {
-          //   await signInWithEmail(values);
-          //   history.push('/');
-          //   setSubmitting(false);
-          // } catch (error) {
-          //   setErrors({ auth: 'Problem with username or password' });
-          //   setSubmitting(false);
-          // }
         }}
       >
         {({ isSubmitting, isValid, dirty, errors, touched }) => (
@@ -54,8 +46,7 @@ function SignIn() {
             >
               Log In
             </button>
-            {/* <div className="rounded-full border-8 border-t-8 border-gray-200 h-64 w-64"> 
-            </div> */}
+            <SocialLogin />
           </Form>
         )}
       </Formik>

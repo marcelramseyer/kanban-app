@@ -22,10 +22,10 @@ function Project() {
     });
   };
   return (
-    <div>
+    <div className="h-full">
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="p-8">
-          <p className="text-xl	font-bold py-8">Kanban Board</p>
+        <div className="p-8 h-full">
+          {/* <p className="text-xl py-8">Kanban Board</p> */}
           <ListContainer />
         </div>
       </DragDropContext>

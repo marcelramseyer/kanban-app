@@ -17,7 +17,7 @@ Part 2 - Drag n Drop Functionality
 
 Part 3 - Backend Basics
 
-[] Redux Filestruktur festlegen
+[x] Redux Filestruktur festlegen
 [] Refactor Reducers -> Action Creators
 [x] Test -> Testdb einrichten und Daten lesen
 
@@ -29,16 +29,41 @@ Part X - Cleanup
 [] observer pattern?
 
 Part 4 - Diverses Get familiar with...
+
 [x] Router Testen
 [x] Form und Validierung Testen mit Formik und Yup
 [] React Modal
+[] Kalender integrieren
+[x] Sidebar öffnen/schliessen
+[] Dropdown Menu
 
 Part 5 - Authentication
-[] Signup Form
+
+[x] Signup Form
 [x] Signin Form
 [x] Authentication with Firebase
 [x] Store Token in Storage
-[] Protected Routes
-[] Signin with Google / Twitter
-[] Fehlerbehebung -> Action wird 2mal dispatched
-[] Funktion auslogen
+[x] Protected Routes
+[x] -> logged sich aus bei refresh
+[x] Signin with Google
+[x] Fehlerbehebung -> Action wird 2mal dispatched
+[x] Funktion auslogen
+[] Google Auth -> kein Popup ??
+
+Part 6 - Projekte
+
+[] Projekt anlegen -> im Sidebar / im Projekt Header / Dashboard
+[] Projekt ändern
+[] Projekt löschen -> Löschflag
+[] Projekt archivieren -> Archivflag
+
+Part 6 - User Profile
+
+[] DisplayName ändern
+[] Profilfoto hochladen
+[] Passwort ändern
+
+Part X - Später
+
+[] Integration eines Pomodoro-Timers
+[] Projekt -> Listenansicht der Aufgaben

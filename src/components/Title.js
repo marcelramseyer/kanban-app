@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { CHANGE_LIST_TITLE } from '../store/actionsTypes';
+import { FiMoreHorizontal } from 'react-icons/fi';
 
 const Title = ({ id, title, cards }) => {
   const dispatch = useDispatch();
@@ -18,14 +19,12 @@ const Title = ({ id, title, cards }) => {
   const toggle = () => {
     if (isOpen) {
       return (
-        <div
-          className="font-bold cursor-pointer pb-4"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <div className="flex">
+        <div className="cursor-pointer pb-4" onClick={() => setIsOpen(!isOpen)}>
+          <div className="flex font-semibold">
             <div>{title}</div>
-            <div className="pl-4 font-normal text-gray-400 ">
+            <div className="pl-4 font-normal text-gray-400 flex text-sm text-gray-500 font-semibold bg-gray-200 h-6 px-2 rounded-full ml-auto">
               {cards.length}
+              <FiMoreHorizontal />
             </div>
           </div>
         </div>

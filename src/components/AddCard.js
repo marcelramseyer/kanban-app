@@ -27,7 +27,9 @@ const AddCard = ({ listId }) => {
           <button onClick={() => setIsOpen(!isOpen)}>Abbrechen</button>
         </div>
       ) : (
-        <button onClick={() => setIsOpen(!isOpen)}>+ Aufgabe hinzufügen</button>
+        <button className="text-gray-600" onClick={() => setIsOpen(!isOpen)}>
+          + Aufgabe hinzufügen
+        </button>
       )}
     </>
   );
